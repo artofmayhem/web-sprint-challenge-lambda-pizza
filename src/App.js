@@ -388,7 +388,7 @@ function Pizza() {
             {/* <label htmlFor="specialInstructions: ">
               Please Add Any Special Instructions
             </label> */}
-            <textarea
+            {/* <textarea
               type="text"
               name="specialInstructions"
               id="specialInstructions"
@@ -408,7 +408,7 @@ function Pizza() {
               >
                 Place Your Order
               </button>
-            </div>
+            </div> */}
           </div>
         </form>
       </div>
