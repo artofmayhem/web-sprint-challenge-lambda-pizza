@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import {
   BrowserRouter,
   Route,
-  Link,
+  // Link,
   Switch,
   useHistory,
 } from "react-router-dom";
@@ -16,13 +16,13 @@ import "./App.css";
 
 //Resource Imports
 
-import lambdalogo from "./resources/lambdalogo.png";
-import pizzaImage from "./resources/pizza.jpg";
+import hoakaleiLogo from "./resources/hoakaleiLogoTrans.png";
+import sandwichImage from "./resources/Sandwich.jpg";
 //import apiUrl from "./apiUrl.js";
 import schema from "./schema.js";
-import Home from "./Home.js";
-import wingsNThings from "./wingsNThings.js";
-import desserts from "./desserts.js";
+// import Home from "./Home.js";
+// import wingsNThings from "./wingsNThings.js";
+// import desserts from "./desserts.js";
 import initialFormValues from "./initialFormValues.js";
 import initialFormErrors from "./initialFormErrors.js";
 
@@ -142,13 +142,13 @@ function Pizza() {
       style={{ marginTop: "2rem", textAlign: "center" }}
     >
       <div>
-        <h1>Build Your Pizza</h1>
+        <h1>Fresh Made Sandwiches</h1>
       </div>
       <div>
-        <h3>Please Make Your Selections Below</h3>
+        <h4>Please Make Your Selections Below</h4>
       </div>
       <div>
-        <img src={pizzaImage} className="sizer" alt="pizza" />
+        <img src={sandwichImage} className="sizer" alt="pizza" />
       </div>
 
       {/* Pizza Form Start */}
@@ -156,11 +156,11 @@ function Pizza() {
         <form onSubmit={handleSubmit}>
           <div
             className="d-flex container justify-content-center flex-column"
-            style={{ backgroundColor: "#aaa" }}
+            style={{ backgroundColor: "#0C499C" }}
           >
-            <h3 style={{ marginBottom: "2rem" }}>Build your pizza: </h3>
+            <h3 style={{ marginBottom: "2rem", color: "white", marginTop: "5%"}}>Build your sandwich: </h3>
             <div>
-              <label htmlFor="nameInput">Name: </label>
+              <label style={{color: "white"}} htmlFor="nameInput">Name: </label>
               <input
                 type="text"
                 name="name"
@@ -176,8 +176,8 @@ function Pizza() {
             </div>
 
             {/* Drop Down Menu For Size */}
-            <label htmlFor="pizzaSize">
-              Choose Your Size: <br /> <em>(required)</em>
+            <label style={{color: "white"}} htmlFor="pizzaSize">
+              Choose your bread: <br /> <em>(required)</em>
             </label>
             <select
               id="pizzaSize"
@@ -186,11 +186,11 @@ function Pizza() {
               onChange={handleChange}
             >
               <option value="">--</option>
-              <option value="Small">Small Pizza (12")</option>
-              <option value="Medium">Medium Pizza (16")</option>
-              <option value="Large">Large Pizza (20")</option>
-              <option value="X-large">X-large Pizza (24")</option>
-              <option value="Super Bowl">Super Bowl Special (36")</option>
+              <option value="Small">Japanese White</option>
+              <option value="Medium">Whole Wheat</option>
+              <option value="Large">Cracked Wheat</option>
+              <option value="X-large">Sourdough</option>
+              <option value="Super Bowl">Rye</option>
             </select>
             {formErrors.size && <span className="error">Size is required</span>}
 
@@ -203,7 +203,7 @@ function Pizza() {
                 Choose your sauce <em>(required)</em>
               </h5>
               <label htmlFor="crushedTomato">
-                Crushed Makaha Farms Tomatoes
+                Mayonnaise
               </label>
               <input
                 className="col"
@@ -215,7 +215,7 @@ function Pizza() {
               />
 
               <label htmlFor="roastedTomatoes">
-                Roasted Purple Cherokee Tomato{" "}
+                Dijon Mustard{" "}
               </label>
               <input
                 className="col"
@@ -226,7 +226,7 @@ function Pizza() {
                 onChange={handleChange}
               />
 
-              <label htmlFor="truffleCream">White Truffle Cream</label>
+              <label htmlFor="truffleCream">Spicy Aioli</label>
               <input
                 className="col"
                 type="radio"
@@ -236,7 +236,7 @@ function Pizza() {
                 onChange={handleChange}
               />
 
-              <label htmlFor="confitGarlic">Confit Baby Garlic Smear</label>
+              <label htmlFor="confitGarlic">Roasted Garlic Aioli</label>
               <input
                 className="col"
                 type="radio"
@@ -252,13 +252,13 @@ function Pizza() {
 
             {/* Topping Choice Checkboxes Start Here */}
             <div
-              className="container d-flex flex-row justify-content-center choices"
+              className="container d-flex flex-column justify-content-center choices"
               style={{ marginBottom: "3rem", boxShadow: "none" }}
             >
               <div className="d-flex justify-content-center align-items-center flex-column choices">
                 <h5 style={{ textAlign: "center" }}>Choose your meats: </h5>
                 <label htmlFor="pepperoni">
-                  Pepperoni
+                  Smoked Turkey
                   <input
                     className="col"
                     type="checkbox"
@@ -268,7 +268,7 @@ function Pizza() {
                   />
                 </label>
                 <label htmlFor="smokedSausage">
-                  Smoked Sausage
+                  Honey Baked Ham
                   <input
                     className="col"
                     type="checkbox"
@@ -278,7 +278,7 @@ function Pizza() {
                   />
                 </label>
                 <label htmlFor="prosciutto">
-                  Prosciutto
+                  Tuna Salad
                   <input
                     className="col"
                     type="checkbox"
@@ -288,7 +288,7 @@ function Pizza() {
                   />
                 </label>
                 <label htmlFor="chicken">
-                  Chicken
+                  Egg Salad
                   <input
                     className="col"
                     type="checkbox"
@@ -298,7 +298,7 @@ function Pizza() {
                   />
                 </label>
                 <label htmlFor="pulledPork">
-                  Pulled Pork
+                  Pastrami
                   <input
                     className="col"
                     type="checkbox"
@@ -318,10 +318,11 @@ function Pizza() {
                   />
                 </label>
               </div>
+              <br></br>
               <div className="d-flex justify-content-center align-items-center flex-column choices">
                 <h5 style={{ textAlign: "center" }}>Choose your veggies: </h5>
                 <label htmlFor="onions">
-                  Onions
+                  Lettuce
                   <input
                     className="col"
                     type="checkbox"
@@ -331,7 +332,7 @@ function Pizza() {
                   />
                 </label>
                 <label htmlFor="pineapple">
-                  Pineapple
+                  Tomato
                   <input
                     className="col"
                     type="checkbox"
@@ -341,7 +342,7 @@ function Pizza() {
                   />
                 </label>
                 <label htmlFor="jalapenos">
-                  Jalapenos
+                  Onion
                   <input
                     className="col"
                     type="checkbox"
@@ -361,7 +362,7 @@ function Pizza() {
                   />
                 </label>
                 <label htmlFor="mushrooms">
-                  Mushrooms
+                  Cucumber
                   <input
                     className="col"
                     type="checkbox"
@@ -371,7 +372,7 @@ function Pizza() {
                   />
                 </label>
                 <label htmlFor="kabochaSquash">
-                  Kabocha Squash
+                  Avocado
                   <input
                     className="col"
                     type="checkbox"
@@ -384,9 +385,9 @@ function Pizza() {
             </div>
 
             {/* Special Instructions Text Area Starts Here  */}
-            <label htmlFor="specialInstructions: ">
+            {/* <label htmlFor="specialInstructions: ">
               Please Add Any Special Instructions
-            </label>
+            </label> */}
             <textarea
               type="text"
               name="specialInstructions"
@@ -420,17 +421,15 @@ function Pizza() {
 export default function App() {
   return (
     <div className="container d-flex flex-column justify-content-center outer-container">
-      <div className="shadow container">
+      <div className="container">
         <div className="head d-flex flex-column align-items-center justify-content-around">
           <h1
             className="display-4"
             style={{ textAlign: "center", paddingTop: "2rem" }}
           >
-            Lambda
-            <br /> Wood Fired
-            <br /> Pizza
+          Hoakalei Eats
           </h1>
-          <img src={lambdalogo} className="lambda" alt="lambda logo"></img>
+          <img src={hoakaleiLogo} className="lambda" alt="hoakalei logo"></img>
         </div>
       </div>
 
@@ -439,14 +438,14 @@ export default function App() {
           className="d-flex flex-column justify-content-center"
           style={{ marginTop: "2rem", marginBottom: "3rem" }}
         >
-          <Link
+          {/* <Link
             to="/"
             className=" btn glow-on-hover"
             style={{ color: "#666", margin: "1rem auto" }}
           >
             Home
-          </Link>
-          <Link
+          </Link> */}
+          {/* <Link
             to="pizza"
             className="btn glow-on-hover"
             style={{ color: "#666", margin: "1rem auto" }}
@@ -466,19 +465,19 @@ export default function App() {
             style={{ color: "#666", margin: "1rem auto" }}
           >
             Desserts
-          </Link>
+          </Link> */}
         </div>
 
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/pizza" component={Pizza} />
+          <Route exact path="/" component={Pizza} />
+          {/* <Route path="/pizza" component={Pizza} />
           <Route path="/wings-n-things" component={wingsNThings} />
-          <Route path="/desserts" component={desserts} />
+          <Route path="/desserts" component={desserts} /> */}
         </Switch>
       </BrowserRouter>
 
       {/*Why would we want code outside of browser router */}
-      <footer>Sprint Project Submission: SPA Tony Miller</footer>
+      <footer>Website by Tony Miller</footer>
       {/*something that doesn't need to be dependent on router functions?  */}
     </div>
   );

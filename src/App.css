@@ -46,7 +46,9 @@ a:hover {
 }
 
 .head {
-  background-image: url(./resources/neonpizza.jpg);
+  /* background-image: url(/Assets/Sandwich.jpg); */
+  background-color: #fff;
+  background-size: 100% 100%;
   background-position: center;
   margin: 1rem auto
 }
@@ -60,8 +62,8 @@ a:hover {
 
 
 body {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
  
 }
 
@@ -71,6 +73,7 @@ footer {
 }
 
 .choices {
+  background-color: #fff;
   box-shadow: 0 0 1.5rem black;
   padding: 2rem 0;
   width: 100%;
