@@ -15,9 +15,9 @@ a {
   box-shadow: 0 0 0.5rem black;
 }
 
-h1 {
+/* h1 {
   text-shadow: 0 0 1.5rem black;
-}
+} */
 
 a:hover {
   color: lime;
@@ -29,18 +29,19 @@ a:hover {
 
 .sizer {
   max-width: 100%;
-  margin: 3rem auto
+  margin: auto auto
+  
 
 }
 
 .image-sizer {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 75%;
+  /* max-height: 75%;} */
 }
 
 .image-sizer2 {
-  max-width: 90%;
-  max-height: 50%;
+  max-width: 30%;
+  max-height: 30%;
   align-self: center;
   margin: 3rem auto
 }

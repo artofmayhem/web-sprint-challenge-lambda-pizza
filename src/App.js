@@ -8,7 +8,7 @@ import {
   useHistory,
 } from "react-router-dom";
 import axios from "axios";
-import * as yup from "yup";
+// import * as yup from "yup";
 
 // Style Imports
 import "bootstrap/dist/css/bootstrap.css";
@@ -18,6 +18,7 @@ import "./App.css";
 
 import hoakaleiLogo from "./resources/hoakaleiLogoTrans.png";
 import sandwichImage from "./resources/Sandwich.jpg";
+import clubSkyView from "./resources/clubSkyView.jpg";
 //import apiUrl from "./apiUrl.js";
 import schema from "./schema.js";
 // import Home from "./Home.js";
@@ -37,8 +38,8 @@ function Pizza() {
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(isDisabled);
 
-  console.log(pizza, disabled, history)
-  
+  console.log(pizza, disabled, history);
+
   //Pizza Poster
   const postNew = (newPizza) => {
     axios
@@ -54,33 +55,33 @@ function Pizza() {
       });
   };
   //Form Validator
-  const validation = (name, value) => {
-    yup
-      .reach(schema, name)
-      .validate(value)
-      .then(() => setFormErrors({ ...formErrors, [name]: "" }))
-      .catch((err) => setFormErrors({ ...formErrors, [name]: err.errors[0] }));
+  // const validation = (name, value) => {
+  //   yup
+  //     .reach(schema, name)
+  //     .validate(value)
+  //     .then(() => setFormErrors({ ...formErrors, [name]: "" }))
+  //     .catch((err) => setFormErrors({ ...formErrors, [name]: err.errors[0] }));
 
-    console.log(
-      "FORM PASSED VALIDATION... PLEASE AWAIT BIO-SCANNER... PREPARE DNA SAMPLE"
-    );
-  };
+  //   console.log(
+  //     "FORM PASSED VALIDATION... PLEASE AWAIT BIO-SCANNER... PREPARE DNA SAMPLE"
+  //   );
+  // };
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    console.log("name", name, "value", value, "type", type, "checked", checked);
-    const inputValue = type === "checkbox" ? checked : value;
-    validation(name, inputValue);
-    setFormValues((prevFormValues) => ({
-      ...prevFormValues,
-      [name]: inputValue,
-    }));
+  // const handleChange = (e) => {
+  //   const { name, value, type, checked } = e.target;
+  //   console.log("name", name, "value", value, "type", type, "checked", checked);
+  //   const inputValue = type === "checkbox" ? checked : value;
+  //   validation(name, inputValue);
+  //   setFormValues((prevFormValues) => ({
+  //     ...prevFormValues,
+  //     [name]: inputValue,
+  //   }));
 
-    setFormErrors((prevFormErrors) => ({
-      ...prevFormErrors,
-      [name]: value ? false : true,
-    }));
-  };
+  //   setFormErrors((prevFormErrors) => ({
+  //     ...prevFormErrors,
+  //     [name]: value ? false : true,
+  //   }));
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -142,12 +143,20 @@ function Pizza() {
       style={{ marginTop: "2rem", textAlign: "center" }}
     >
       <div>
-        <h1 style={{marginBottom: "5rem" }} >Fresh made sandwiches now delivered straight to you! </h1>
-     
-        <h2 style={{ color:"#0C499", marginBottom: "2rem"}} htmlFor="nameInput">Call (808)979-6207 <br></br>to start your order! </h2>
+        <h1 style={{ marginBottom: "5rem" }}>
+          Fresh sandwiches made now, delivered straight to you while!{" "}
+        </h1>
       </div>
-      <div>
-        <h4>Please Make Your Selections Below </h4>
+      <div style={{ backgroundColor: "#bbb" }}>
+        <h2
+          style={{ color: "#0C499", marginTop: "2rem", marginBottom: "3rem" }}
+          htmlFor="nameInput"
+        >
+          Call (808)979-6207 <br></br>to start your order!{" "}
+        </h2>
+        <h4 style={{ marginTop: "2rem", marginBottom: "3rem" }}>
+          Please Make Your Selections Below{" "}
+        </h4>
       </div>
       <div>
         <img src={sandwichImage} className="sizer" alt="pizza" />
@@ -160,96 +169,78 @@ function Pizza() {
             className="d-flex container justify-content-center flex-column"
             style={{ backgroundColor: "#0C499C" }}
           >
-            <h3 style={{ marginBottom: "2rem", color: "white", marginTop: "5%"}}>Build your sandwich: </h3>
-            <div>
-           
-              {/* <input
-                type="text"
-                name="name"
-                id="nameInput"
-                minLength="2"
-                placeholder="Last Name, First Name"
-                onChange={handleChange}
-                value={formValues.name}
-              /> */}
-              {formErrors.name && (
-                <span className="error">Name is required</span>
-              )}
-            </div>
-
-            {/* Drop Down Menu For Size */}
-            <label style={{ color: "white"}} htmlFor="pizzaSize">
-              Choose your bread: <br /> <em>(required)</em>
-            </label>
-            <select
-              id="pizzaSize"
-              name="size"
-              style={{ margin: "1.5rem" }}
-              onChange={handleChange}
+            <h3
+              style={{ marginBottom: "2rem", color: "white", marginTop: "5%" }}
             >
-              <option value="">--</option>
-              <option value="Small">Japanese White</option>
-              <option value="Medium">Whole Wheat</option>
-              <option value="Large">Cracked Wheat</option>
-              <option value="X-large">Sourdough</option>
-              <option value="Super Bowl">Gluten Free</option>
-            </select>
-            {formErrors.size && <span className="error">Size is required</span>}
+              Build your sandwich:{" "}
+            </h3>
 
             {/*  Radio Buttons For Sauce Choices*/}
             <div
               className="d-flex flex-column justify-content-center choices"
               style={{ margin: "3rem auto" }}
             >
-              <h5>
-                Choose your sauce 
-              </h5>
-              <label  htmlFor="crushedTomato">
-                Mayonnaise
+              <h5 style={{ textAlign: "center" }}>Choose your meats: </h5>
+              <label htmlFor="pepperoni">
+                Smoked Turkey $12
+                {/* <input
+                    className="col"
+                    type="checkbox"
+                    name="pepperoni"
+                    id="pepperoni"
+                    onChange={handleChange}
+                  /> */}
               </label>
-              {/* <input
-                className="row"
-                type="radio"
-                name="sauceChoice"
-                id="crushedTomato"
-                value="Crushed Tomato"
-                onChange={handleChange}
-              /> */}
-
-              <label htmlFor="roastedTomatoes">
-                Dijon Mustard{" "}
+              <label htmlFor="smokedSausage">
+                Honey Baked Ham $12
+                {/* <input
+                    className="col"
+                    type="checkbox"
+                    name="smokedSausage"
+                    id="smokedSausage"
+                    onChange={handleChange}
+                  /> */}
               </label>
-              {/* <input
-                className="col"
-                type="radio"
-                name="sauceChoice"
-                id="roastedTomatoes"
-                value="Roasted Tomato"
-                onChange={handleChange}
-              /> */}
-
-              <label htmlFor="truffleCream">Spicy Aioli</label>
-              {/* <input
-                className="col"
-                type="radio"
-                name="sauceChoice"
-                id="truffleCream"
-                value="Truffle Cream"
-                onChange={handleChange}
-              /> */}
-
-              <label htmlFor="confitGarlic">Roasted Garlic Aioli</label>
-              {/* <input
-                className="col"
-                type="radio"
-                name="sauceChoice"
-                id="confitGarlic"
-                value="Confit Garlic"
-                onChange={handleChange}
-              /> */}
-              {formErrors.sauceChoice && (
-                <span className="error">Sauce is required</span>
-              )}
+              <label htmlFor="prosciutto">
+                Tuna Salad $12
+                {/* <input
+                    className="col"
+                    type="checkbox"
+                    name="prosciutto"
+                    id="prosciutto"
+                    onChange={handleChange}
+                  /> */}
+              </label>
+              <label htmlFor="chicken">
+                Egg Salad $10
+                {/* <input
+                    className="col"
+                    type="checkbox"
+                    name="chicken"
+                    id="chicken"
+                    onChange={handleChange}
+                  /> */}
+              </label>
+              <label htmlFor="pulledPork">
+                Pastrami $13
+                {/* <input
+                    className="col"
+                    type="checkbox"
+                    name="pulledPork"
+                    id="pulledPork"
+                    onChange={handleChange}
+                  /> */}
+              </label>
+              <label htmlFor="bacon">
+                Bacon $11
+                {/* <input
+                    className="col"
+                    type="checkbox"
+                    name="bacon"
+                    id="bacon"
+                    onChange={handleChange}
+                  /> */}
+              </label>
             </div>
 
             {/* Topping Choice Checkboxes Start Here */}
@@ -258,69 +249,99 @@ function Pizza() {
               style={{ marginBottom: "3rem", boxShadow: "none" }}
             >
               <div className="d-flex justify-content-center align-items-center flex-column choices">
-                <h5 style={{ textAlign: "center" }}>Choose your meats: </h5>
-                <label htmlFor="pepperoni">
-                  Smoked Turkey
-                  {/* <input
-                    className="col"
-                    type="checkbox"
-                    name="pepperoni"
-                    id="pepperoni"
-                    onChange={handleChange}
-                  /> */}
-                </label>
-                <label htmlFor="smokedSausage">
-                  Honey Baked Ham
-                  {/* <input
-                    className="col"
-                    type="checkbox"
-                    name="smokedSausage"
-                    id="smokedSausage"
-                    onChange={handleChange}
-                  /> */}
-                </label>
-                <label htmlFor="prosciutto">
-                  Tuna Salad
-                  {/* <input
-                    className="col"
-                    type="checkbox"
-                    name="prosciutto"
-                    id="prosciutto"
-                    onChange={handleChange}
-                  /> */}
-                </label>
-                <label htmlFor="chicken">
-                  Egg Salad
-                  {/* <input
-                    className="col"
-                    type="checkbox"
-                    name="chicken"
-                    id="chicken"
-                    onChange={handleChange}
-                  /> */}
-                </label>
-                <label htmlFor="pulledPork">
-                  Pastrami
-                  {/* <input
-                    className="col"
-                    type="checkbox"
-                    name="pulledPork"
-                    id="pulledPork"
-                    onChange={handleChange}
-                  /> */}
-                </label>
-                <label htmlFor="bacon">
-                  Bacon
-                  {/* <input
-                    className="col"
-                    type="checkbox"
-                    name="bacon"
-                    id="bacon"
-                    onChange={handleChange}
-                  /> */}
-                </label>
+                <h5>Choose your sauce</h5>
+                <label htmlFor="crushedTomato">Mayonnaise</label>
+                {/* <input
+                className="row"
+                type="radio"
+                name="sauceChoice"
+                id="crushedTomato"
+                value="Crushed Tomato"
+                onChange={handleChange}
+              /> */}
+
+                <label htmlFor="roastedTomatoes">Dijon Mustard </label>
+                {/* <input
+                className="col"
+                type="radio"
+                name="sauceChoice"
+                id="roastedTomatoes"
+                value="Roasted Tomato"
+                onChange={handleChange}
+              /> */}
+
+                <label htmlFor="truffleCream">Spicy Aioli</label>
+                {/* <input
+                className="col"
+                type="radio"
+                name="sauceChoice"
+                id="truffleCream"
+                value="Truffle Cream"
+                onChange={handleChange}
+              /> */}
+
+                <label htmlFor="confitGarlic">Roasted Garlic Aioli</label>
+                {/* <input
+                className="col"
+                type="radio"
+                name="sauceChoice"
+                id="confitGarlic"
+                value="Confit Garlic"
+                onChange={handleChange}
+              /> */}
               </div>
-              <br></br>
+
+              {/* Cheese Selections */}
+              <div className="d-flex justify-content-center align-items-center flex-column choices">
+                {/* {formErrors.sauceChoice && (
+                <span className="error">Sauce is required</span>
+              )} */}
+                <h5>Choose your cheese</h5>
+                <label htmlFor="crushedTomato">Cheddar </label>
+                {/* <input
+                className="row"
+                type="radio"
+                name="sauceChoice"
+                id="crushedTomato"
+                value="Crushed Tomato"
+                onChange={handleChange}
+              /> */}
+
+                <label htmlFor="roastedTomatoes">Swiss </label>
+                {/* <input
+                className="col"
+                type="radio"
+                name="sauceChoice"
+                id="roastedTomatoes"
+                value="Roasted Tomato"
+                onChange={handleChange}
+              /> */}
+
+                <label htmlFor="truffleCream">Provolone </label>
+                {/* <input
+                className="col"
+                type="radio"
+                name="sauceChoice"
+                id="truffleCream"
+                value="Truffle Cream"
+                onChange={handleChange}
+              /> */}
+
+                <label htmlFor="confitGarlic">Jalapeno Jack </label>
+                {/* <input
+                className="col"
+                type="radio"
+                name="sauceChoice"
+                id="confitGarlic"
+                value="Confit Garlic"
+                onChange={handleChange}
+              /> */}
+                {formErrors.sauceChoice && (
+                  <span className="error">Sauce is required</span>
+                )}
+              </div>
+
+              {/* Vegetable selection */}
               <div className="d-flex justify-content-center align-items-center flex-column choices">
                 <h5 style={{ textAlign: "center" }}>Choose your veggies: </h5>
                 <label htmlFor="onions">
@@ -411,6 +432,87 @@ function Pizza() {
                 Place Your Order
               </button>
             </div> */}
+            <div>
+              {/* <input
+             type="text"
+             name="name"
+             id="nameInput"
+             minLength="2"
+             placeholder="Last Name, First Name"
+             onChange={handleChange}
+             value={formValues.name}
+           /> */}
+              {formErrors.name && (
+                <span className="error">Name is required</span>
+              )}
+            </div>
+
+            {/* Drop Down Menu For Size */}
+            {/* <label style={{ color: "white"}} htmlFor="pizzaSize">
+           Choose your bread: <br /> <em>(required)</em>
+         </label> */}
+            {/* <select
+           id="pizzaSize"
+           name="size"
+           style={{ margin: "1.5rem" }}
+           onChange={handleChange}
+         >
+           <option value="">--</option>
+           <option value="Small">Japanese White</option>
+           <option value="Medium">Whole Wheat</option>
+           <option value="Large">Cracked Wheat</option>
+           <option value="X-large">Sourdough</option>
+           <option value="Super Bowl">Gluten Free</option>
+         </select>
+         {formErrors.size && <span className="error">Size is required</span>} */}
+            <div
+              className="d-flex flex-column justify-content-center choices"
+              style={{ margin: "1rem auto" }}
+            >
+              <h5>Choose your Bread</h5>
+              <label htmlFor="crushedTomato">Japanese White</label>
+              {/* <input
+             className="row"
+             type="radio"
+             name="sauceChoice"
+             id="crushedTomato"
+             value="Crushed Tomato"
+             onChange={handleChange}
+           /> */}
+
+              <label htmlFor="roastedTomatoes">Cracked Wheat </label>
+              {/* <input
+             className="col"
+             type="radio"
+             name="sauceChoice"
+             id="roastedTomatoes"
+             value="Roasted Tomato"
+             onChange={handleChange}
+           /> */}
+
+              <label htmlFor="truffleCream">Sourdough </label>
+              {/* <input
+             className="col"
+             type="radio"
+             name="sauceChoice"
+             id="truffleCream"
+             value="Truffle Cream"
+             onChange={handleChange}
+           /> */}
+
+              <label htmlFor="confitGarlic">Gluten Free </label>
+              {/* <input
+             className="col"
+             type="radio"
+             name="sauceChoice"
+             id="confitGarlic"
+             value="Confit Garlic"
+             onChange={handleChange}
+           /> */}
+              {formErrors.sauceChoice && (
+                <span className="error">Sauce is required</span>
+              )}
+            </div>
           </div>
         </form>
       </div>
@@ -429,9 +531,20 @@ export default function App() {
             className="display-4"
             style={{ textAlign: "center", paddingTop: "2rem" }}
           >
-          Hoakalei Eats
+            Hoakalei Eats
           </h1>
-          <img src={hoakaleiLogo} className="lambda" alt="hoakalei logo"></img>
+          <img
+            src={hoakaleiLogo}
+            className="image-sizer"
+            alt="hoakalei logo"
+          ></img>
+        </div>
+        <div>
+          <img
+            src={clubSkyView}
+            className="d-flex flex-column justify-content-center sizer"
+            alt="picturesque ariel view of the golf course"
+          />
         </div>
       </div>
 
@@ -479,7 +592,20 @@ export default function App() {
       </BrowserRouter>
 
       {/*Why would we want code outside of browser router */}
-      <footer>Website by Tony Miller</footer>
+      <div className="container d-flex flex-column justify-content-center">
+        <h2 style={{ textAlign: "center", marginTop: "5rem" }}>
+          Thank you for choosing Hoakalei Eats! <br></br>
+          <img
+            src={hoakaleiLogo}
+            className="image-sizer2"
+            alt="hoakalei logo"
+          ></img>
+        </h2>
+      </div>
+      <footer>
+        <h5 style={{ fontSize: "12px" }}>copyright 2024 Sankara Hawaii</h5>
+        <h5 style={{ fontSize: "10px" }}>Website by Tony Miller</h5>
+      </footer>
       {/*something that doesn't need to be dependent on router functions?  */}
     </div>
   );
