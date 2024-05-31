@@ -12,7 +12,7 @@ a {
   text-decoration: none;
   margin: 1rem auto;
   padding: 0rem 2rem;
-  box-shadow: 0 0 1.5rem black;
+  box-shadow: 0 0 0.5rem black;
 }
 
 h1 {
@@ -56,7 +56,7 @@ a:hover {
 .shadow {
   background-color: #444;
   opacity: 0.8;
-  margin: 2rem auto;
+  margin: .5rem auto;
   
 }
 
@@ -73,8 +73,8 @@ footer {
 }
 
 .choices {
-  background-color: #fff;
-  box-shadow: 0 0 1.5rem black;
+  background-color: #fff;  
+/* box-shadow: 0 0 0.5rem black; */
   padding: 2rem 0;
   width: 100%;
 }

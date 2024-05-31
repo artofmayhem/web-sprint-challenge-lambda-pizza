@@ -120,9 +120,9 @@ function Pizza() {
     };
 
     postNew(newPizza);
-    alert(
-      "Thank you for placing your order with Lambda Pizza. Our Kitchen is preparing your pizza right now. Your driver will be there shortly. In the meantime, have a wonderful day and thank you again for choosing Lambda Pizza"
-    );
+    // alert(
+    //   "Thank you for placing your order with Lambda Pizza. Our Kitchen is preparing your pizza right now. Your driver will be there shortly. In the meantime, have a wonderful day and thank you again for choosing Lambda Pizza"
+    // );
     setFormValues(initialFormValues);
     history.push("/");
   };
@@ -142,10 +142,12 @@ function Pizza() {
       style={{ marginTop: "2rem", textAlign: "center" }}
     >
       <div>
-        <h1>Fresh Made Sandwiches</h1>
+        <h1 style={{marginBottom: "5rem" }} >Fresh made sandwiches now delivered straight to you! </h1>
+     
+        <h2 style={{ color:"#0C499", marginBottom: "2rem"}} htmlFor="nameInput">Call (808)979-6207 <br></br>to start your order! </h2>
       </div>
       <div>
-        <h4>Please Make Your Selections Below</h4>
+        <h4>Please Make Your Selections Below </h4>
       </div>
       <div>
         <img src={sandwichImage} className="sizer" alt="pizza" />
@@ -160,8 +162,8 @@ function Pizza() {
           >
             <h3 style={{ marginBottom: "2rem", color: "white", marginTop: "5%"}}>Build your sandwich: </h3>
             <div>
-              <label style={{color: "white"}} htmlFor="nameInput">Name: </label>
-              <input
+           
+              {/* <input
                 type="text"
                 name="name"
                 id="nameInput"
@@ -169,14 +171,14 @@ function Pizza() {
                 placeholder="Last Name, First Name"
                 onChange={handleChange}
                 value={formValues.name}
-              />
+              /> */}
               {formErrors.name && (
                 <span className="error">Name is required</span>
               )}
             </div>
 
             {/* Drop Down Menu For Size */}
-            <label style={{color: "white"}} htmlFor="pizzaSize">
+            <label style={{ color: "white"}} htmlFor="pizzaSize">
               Choose your bread: <br /> <em>(required)</em>
             </label>
             <select
@@ -190,7 +192,7 @@ function Pizza() {
               <option value="Medium">Whole Wheat</option>
               <option value="Large">Cracked Wheat</option>
               <option value="X-large">Sourdough</option>
-              <option value="Super Bowl">Rye</option>
+              <option value="Super Bowl">Gluten Free</option>
             </select>
             {formErrors.size && <span className="error">Size is required</span>}
 
@@ -200,51 +202,51 @@ function Pizza() {
               style={{ margin: "3rem auto" }}
             >
               <h5>
-                Choose your sauce <em>(required)</em>
+                Choose your sauce 
               </h5>
-              <label htmlFor="crushedTomato">
+              <label  htmlFor="crushedTomato">
                 Mayonnaise
               </label>
-              <input
-                className="col"
+              {/* <input
+                className="row"
                 type="radio"
                 name="sauceChoice"
                 id="crushedTomato"
                 value="Crushed Tomato"
                 onChange={handleChange}
-              />
+              /> */}
 
               <label htmlFor="roastedTomatoes">
                 Dijon Mustard{" "}
               </label>
-              <input
+              {/* <input
                 className="col"
                 type="radio"
                 name="sauceChoice"
                 id="roastedTomatoes"
                 value="Roasted Tomato"
                 onChange={handleChange}
-              />
+              /> */}
 
               <label htmlFor="truffleCream">Spicy Aioli</label>
-              <input
+              {/* <input
                 className="col"
                 type="radio"
                 name="sauceChoice"
                 id="truffleCream"
                 value="Truffle Cream"
                 onChange={handleChange}
-              />
+              /> */}
 
               <label htmlFor="confitGarlic">Roasted Garlic Aioli</label>
-              <input
+              {/* <input
                 className="col"
                 type="radio"
                 name="sauceChoice"
                 id="confitGarlic"
                 value="Confit Garlic"
                 onChange={handleChange}
-              />
+              /> */}
               {formErrors.sauceChoice && (
                 <span className="error">Sauce is required</span>
               )}
@@ -259,127 +261,127 @@ function Pizza() {
                 <h5 style={{ textAlign: "center" }}>Choose your meats: </h5>
                 <label htmlFor="pepperoni">
                   Smoked Turkey
-                  <input
+                  {/* <input
                     className="col"
                     type="checkbox"
                     name="pepperoni"
                     id="pepperoni"
                     onChange={handleChange}
-                  />
+                  /> */}
                 </label>
                 <label htmlFor="smokedSausage">
                   Honey Baked Ham
-                  <input
+                  {/* <input
                     className="col"
                     type="checkbox"
                     name="smokedSausage"
                     id="smokedSausage"
                     onChange={handleChange}
-                  />
+                  /> */}
                 </label>
                 <label htmlFor="prosciutto">
                   Tuna Salad
-                  <input
+                  {/* <input
                     className="col"
                     type="checkbox"
                     name="prosciutto"
                     id="prosciutto"
                     onChange={handleChange}
-                  />
+                  /> */}
                 </label>
                 <label htmlFor="chicken">
                   Egg Salad
-                  <input
+                  {/* <input
                     className="col"
                     type="checkbox"
                     name="chicken"
                     id="chicken"
                     onChange={handleChange}
-                  />
+                  /> */}
                 </label>
                 <label htmlFor="pulledPork">
                   Pastrami
-                  <input
+                  {/* <input
                     className="col"
                     type="checkbox"
                     name="pulledPork"
                     id="pulledPork"
                     onChange={handleChange}
-                  />
+                  /> */}
                 </label>
                 <label htmlFor="bacon">
                   Bacon
-                  <input
+                  {/* <input
                     className="col"
                     type="checkbox"
                     name="bacon"
                     id="bacon"
                     onChange={handleChange}
-                  />
+                  /> */}
                 </label>
               </div>
               <br></br>
               <div className="d-flex justify-content-center align-items-center flex-column choices">
                 <h5 style={{ textAlign: "center" }}>Choose your veggies: </h5>
                 <label htmlFor="onions">
-                  Lettuce
-                  <input
+                  Manoa Lettuce
+                  {/* <input
                     className="col"
                     type="checkbox"
                     name="onions"
                     id="onions"
                     onChange={handleChange}
-                  />
+                  /> */}
                 </label>
                 <label htmlFor="pineapple">
-                  Tomato
-                  <input
+                  Ho Farm Tomato
+                  {/* <input
                     className="col"
                     type="checkbox"
                     name="pineapple"
                     id="pineapple"
                     onChange={handleChange}
-                  />
+                  /> */}
                 </label>
                 <label htmlFor="jalapenos">
                   Onion
-                  <input
+                  {/* <input
                     className="col"
                     type="checkbox"
                     name="jalapenos"
                     id="jalapenos"
                     onChange={handleChange}
-                  />
+                  /> */}
                 </label>
                 <label htmlFor="babySpinach">
                   Baby Spinach
-                  <input
+                  {/* <input
                     className="col"
                     type="checkbox"
                     name="babySpinach"
                     id="babySpinach"
                     onChange={handleChange}
-                  />
+                  /> */}
                 </label>
                 <label htmlFor="mushrooms">
-                  Cucumber
-                  <input
+                  Aloun Farms Cucumber
+                  {/* <input
                     className="col"
                     type="checkbox"
                     name="mushrooms"
                     id="mushrooms"
                     onChange={handleChange}
-                  />
+                  /> */}
                 </label>
                 <label htmlFor="kabochaSquash">
                   Avocado
-                  <input
+                  {/* <input
                     className="col"
                     type="checkbox"
                     name="kabochaSquash"
                     id="kabochaSquash"
                     onChange={handleChange}
-                  />
+                  /> */}
                 </label>
               </div>
             </div>
